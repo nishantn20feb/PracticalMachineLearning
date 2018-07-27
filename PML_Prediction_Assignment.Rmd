@@ -52,7 +52,9 @@ set.seed(12345)
 
 ### c) Data Loading and Cleaning
 
-The next step is loading the dataset from the URL provided above. The training dataset is then partinioned in 2 to create a Training set (70% of the data) for the modeling process and a Test set (with the remaining 30%) for the validations. The testing dataset is not changed and will only be used for the quiz results generation.
+The next step is loading the dataset from the URL provided above. The training dataset is then partitioned into 2 to create a Training set (70% of the data) for the modeling process and a Test set (with the remaining 30%) for the validations. This will allow us to estimate the out- of-sample error of our predictor.
+
+The pml-testing dataset is not changed and will ONLY be used for the quiz results generation.
 
 ```{r}
 # set the URL for the download
@@ -118,6 +120,8 @@ A Confusion Matrix is plotted at the end of each analysis to better visualize th
 
 
 ### a) Method: Random Forest
+
+Using random forest, the out of sample error should be small. The error will be estimated using the 30% testing sample. We should expect an error estimate of < 3%.
 
 ```{r}
 # model fit
